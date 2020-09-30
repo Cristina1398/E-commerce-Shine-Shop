@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shine</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse"> <!--Begin navbar navbar-inverse -->
+        <div class="container-fluid"> <!-- Begin container-fluid -->
+            <div class="navbar-header"> <!-- Begin navbar-header -->
+                <!--in case of Xs pages, the nav appears just when we click on a button list-->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="glyphicon glyphicon-list"></span>                       
+                </button>
+                <a href="index.php" class="navbar-brand home"><!-- navbar-brand home Begin -->                        
+                            <img src="images/logo_shine_desktop.png" alt="M-dev-Store Logo" class="hidden-xs">
+                            <img src="images/logo_shine_desktop.png" alt="M-dev-Store Logo Mobile" class="visible-xs">                        
+                </a><!-- navbar-brand home Finish -->
+                              
+               <button class="navbar-toggle" data-toggle="collapse" data-target="#search">                   
+                   <span class="sr-only">Toggle Search</span>                   
+                   <i class="fa fa-search"></i>                   
+               </button>
+            </div> <!-- Finish navbar-header -->
+
+            <div class="collapse navbar-collapse padding-nav" id="myNavbar"> <!-- Begin collapse navbar-collapse-->
+                <ul class="nav navbar-nav left">                      
+                    <li>
+                        <a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a>
+                    </li>
+                    <li>
+                        <a href="customer/myaccount.php.php"><span class="glyphicon glyphicon-user"></span> My Account</a>
+                    </li>
+                    <li class="active">
+                        <a href="shop.php"><span class="glyphicon glyphicon-euro"></span> Shop</a>
+                    </li>
+                   
+                    <li>
+                        <a href="shopping-cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a>
+                    </li>
+                    <li>
+                        <a href="contact.php"><span class="glyphicon glyphicon-envelope"></span> Contact Us </a>
+                    </li>                            
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="sign-up.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div> <!-- Finish collapse navbar collapse-->
+        </div> <!-- Finish container-fluid -->
+    </nav><!--Finish navbar navbar-inverse -->
+  
+    <div id="top"><!-- Top Begin -->       
+       <div class="container"><!-- container Begin -->           
+           <a href="shopping-cart.php" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary Begin -->                   
+                   <i class="fa fa-shopping-cart"></i>                   
+                   <span>4 Items In Your Cart</span>                   
+            </a><!-- btn navbar-btn btn-primary Finish -->
+            
+            <button class="btn btn-primary navbar-btn" type="button" data-toggle="collapse" data-target="#search"><!-- btn btn-primary navbar-btn Begin -->
+                    <span class="sr-only">Toggle Search</span>                       
+                    <i class="fa fa-search"></i>                       
+            </button><!-- btn btn-primary navbar-btn Finish -->                   
+                  
+            <div class="collapse clearfix" id="search"><!-- collapse clearfix Begin -->                   
+                   <form method="get" action="results.php" class="navbar-form"><!-- navbar-form Begin -->                       
+                       <div class="input-group"><!-- input-group Begin -->                           
+                           <input type="text" class="form-control" placeholder="Search" name="user_query" required>                           
+                           <span class="input-group-btn"><!-- input-group-btn Begin -->                           
+                           <button type="submit" name="search" value="Search" class="btn btn-primary"><!-- btn btn-primary Begin -->                               
+                               <i class="fa fa-search"></i>                               
+                           </button><!-- btn btn-primary Finish -->                           
+                           </span><!-- input-group-btn Finish -->                           
+                       </div><!-- input-group Finish -->                       
+                   </form><!-- navbar-form Finish -->                   
+            </div><!-- collapse clearfix Finish -->
+       </div><!-- container Finish -->
+       
+    </div><!-- Top Finish -->
+
+    <div id="content-shop"> <!-- content-shop Begin -->
+        <div class="container"><!--Container begin-->
+            <div class="col-md-12"><!--col-md-12 begin-->
+                <ul class="breadcrumb"> <!--breadcrumb Begin-->
+                    <li>
+                        <a href="index.php"> Home </a>
+                    </li>
+                    <li>
+                        Shop
+                    </li>   
+                </ul>
+            </div> <!--col-md-12 finish-->
+            <div class="col-md-3"> <!--col-md-3 Begin -->
+                <?php 
+                     include("includes/sidebar.php");
+                ?>
+            </div> <!--col-md-3 Finish -->
+
+            <div class="col-md-9"> <!--col-md-9 begin -->
+                <div class="box">
+                    <p>
+                        Make your special moments last forever with a Shine jewelery. Add the charms that tell your unique story and change them as often as you like to keep your look fresh and fun. Capture the highlights of your story.
+                    </p>
+                </div> <!-- box finish-->
+
+                <div class="row"> <!-- row begin -->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Cristina's necklace
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/necklace1.jpg" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Laura's necklace
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/necklace2020.png" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Bianca's ring
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/ring3.jpg" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Bianca's ring
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/ring2.jpg" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Classy watch
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/watch1.png" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        A's ring
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/ring1.jpg" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Flower's necklace
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/necklace2020.png" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Laura's ring
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/ring4.jpg" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Mom's ring
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/ring2.jpg" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->                    
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Cristina's necklace
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/necklace1.jpg" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Laura's necklace
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/necklace2020.png" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Bianca's ring
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/ring3.jpg" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Bianca's ring
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/ring2.jpg" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Classy watch
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/watch1.png" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        A's ring
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/ring1.jpg" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Flower's necklace
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/necklace2020.png" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Laura's ring
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/ring4.jpg" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->
+                    <div class="col-md-4 col-sm-6 center-responsive"> <!--col md-4 col-sm-6 center-responsive begin-->
+                        <div class="product"> <!--product begin-->
+                            <div class="text"> <!--text begin -->
+                                <h3>
+                                    <a href="details.php">
+                                        Mom's ring
+                                    </a>
+                                </h3>
+                            </div> <!-- text finish-->
+
+                            <a href="details.php">
+                                <img class="img-responsive" src="admin_area/product_images/ring2.jpg" alt="Product 1">
+                            </a>
+                            <p class="price">$100 </p>
+                            <p class="button">
+                                <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                <a href="details.php" class= "btn btn-primary">
+                                    <i class="fa fa-shopping-cart">
+                                            Add To cart
+                                    </i>
+                                </a>
+                            </p>
+                        </div><!-- product finish-->
+                    </div> <!--col md-4 col-sm-6 center-responsive finish-->                    
+                </div><!-- row finish -->
+                
+                <center>
+                    <ul class="pagination">
+                        <li><a href="#"> First Page </a></li>
+                        <li><a href="#"> 1 </a></li>
+                        <li><a href="#"> 2 </a></li>
+                        <li><a href="#"> 3 </a></li>
+                        <li><a href="#"> 4 </a></li>
+                        <li><a href="#"> 5 </a></li>
+                        <li><a href="#"> Last Page </a></li>         
+
+            </div><!-- col-md-9 finish-->
+
+        </div><!--container finish-->
+    </div><!--content-shop finish-->
+    
+    <?php 
+        include("includes/footer.php");
+    ?>
+
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    
+</body>
+</html>
