@@ -1,3 +1,7 @@
+<?php
+    include("functions/add_images.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,7 +106,7 @@
                     <?php
 
                         //ne conectam la baza de date
-                        $connection = require_once 'includes/dbconn.php';
+                      
 
                         // assigning the array to the $data varaible
                      
@@ -270,7 +274,7 @@
             <div class="container"> <!--container begin-->
                 <div class="col-md-12" ><!-- col-md-12 begin-->
                     <h2>
-                        Shine 2020 
+                        New Entry 
                     </h2>
                 </div><!-- col-md-12 finish-->
             </div><!--Container finish-->
@@ -279,102 +283,9 @@
 
     <div id="content2" class="container"><!---container begin-->
         <div class="row"><!--row begin-->
-            <div class="col-sm-4 col-sm-6 single"><!--col-sm-4 col-sm-6 single begin-->
-                <div class="product"> <!--product begin-->
-                    <div class="text"> <!--text begin -->
-                        <h3>
-                            <a href="details.php">
-                                Diamond Earring
-                            </a>
-                        </h3>
-                    </div> <!-- text finish-->
-
-                    <a href="details.php">
-                        <img class="img-responsive" src="admin_area/product_images/earring2020.png" alt="Product 1">
-                    </a>
-                    <p class="price">$100 </p>
-                    <p class="button">
-                        <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
-                        <a href="details.php" class= "btn btn-primary">
-                            <i class="fa fa-shopping-cart">
-                                    Add To cart
-                            </i>
-                        </a>
-                    </p>
-                </div><!-- product finish-->
-            </div><!--col-sm-4 col-sm-6 single finish-->
-            <div class="col-sm-4 col-sm-6 single"><!--col-sm-4 col-sm-6 single begin-->
-                <div class="product"> <!--product begin-->
-                    <div class="text"> <!--text begin -->
-                        <h3>
-                            <a href="details.php">
-                                Diamond Ring
-                            </a>
-                        </h3>
-                    </div> <!-- text finish-->
-
-                    <a href="details.php">
-                        <img class="img-responsive" src="admin_area/product_images/ring2020.png" alt="Product 1">
-                    </a>
-                    <p class="price">$115 </p>
-                    <p class="button">
-                        <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </a>                       
-                        <a href="details.php" class= "btn btn-primary">
-                            <i class="fa fa-shopping-cart">
-                                    Add To cart
-                            </i>
-                        </a>
-                    </p>
-                </div><!-- product finish-->
-            </div><!--col-sm-4 col-sm-6 single finish-->
-            <div class="col-sm-4 col-sm-6 single"><!--col-sm-4 col-sm-6 single begin-->
-                <div class="product"> <!--product begin-->
-                    <div class="text"> <!--text begin -->
-                        <h3>
-                            <a href="details.php">
-                                Diamond Watch
-                            </a>
-                        </h3>
-                    </div> <!-- text finish-->
-
-                    <a href="details.php">
-                        <img class="img-responsive" src="admin_area/product_images/watch2020.png" alt="Product 1">
-                    </a>
-                    <p class="price">$150 </p>
-                    <p class="button">
-                        <a href="details.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </a>
-                        <a href="details.php" class= "btn btn-primary">
-                            <i class="fa fa-shopping-cart">
-                                    Add To cart
-                            </i>
-                        </a>
-                    </p>
-                </div><!-- product finish-->
-            </div><!--col-sm-4 col-sm-6 single finish-->
-            <div class="col-sm-4 col-sm-6 single"><!--col-sm-4 col-sm-6 single begin-->
-                <div class="product"> <!--product begin-->
-                    <div class="text"> <!--text begin -->
-                        <h3>
-                            <a href="details.php">
-                                Diamond Necklace
-                            </a>
-                        </h3>
-                    </div> <!-- text finish-->
-
-                    <a href="details.php">
-                        <img class="img-responsive" src="admin_area/product_images/necklace2020.png" alt="Product 1">
-                    </a>
-                    <p class="price">$200 </p>
-                    <p class="button">
-                        <a href="details.php" class="btn btn-default"> <span class="glyphicon glyphicon-plus-sign"> Details </a>
-                        <a href="details.php" class= "btn btn-primary">
-                            <i class="fa fa-shopping-cart">
-                                    Add To cart
-                            </i>
-                        </a>
-                    </p>
-                </div><!-- product finish-->
-            </div><!--col-sm-4 col-sm-6 single finish-->
+            <?php
+                Display_products();
+            ?>
         </div> <!--row finish-->
     </div> <!--container finish-->
 
