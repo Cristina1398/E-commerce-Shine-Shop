@@ -95,7 +95,7 @@
                 <div class="form-group"> <!--form-group begin -->
                     <label class="col-md-3 control-label">Price </label>
                     <div class="col-md-6"> <!--col-md-6 begin -->
-                        <input name="product_price" type="text" class="form-control" required>
+                        <input name="product_price" type="text" class="form-control">
                     </div>
                 </div> <!--form-group finish-->
 
@@ -103,7 +103,7 @@
                 <div class="form-group"> <!--form-group begin -->
                     <label class="col-md-3 control-label">Keywords</label>
                     <div class="col-md-6"> <!--col-md-6 begin -->
-                        <input name="product_keyword" type="text" class="form-control" required>
+                        <input name="product_keyword" type="text" class="form-control">
                     </div>
                 </div> <!--form-group finish-->
 

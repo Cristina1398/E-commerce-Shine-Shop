@@ -1,3 +1,4 @@
+
 <div id="footer"><!--footer Begin-->
     <div class="container-fluid"><!-- container-fluid Begin-->
         <div class="row"><!-- row Begin -->
@@ -7,27 +8,40 @@
             <div class="col-sm-2 col-xs-2 begin"><!-- col-sm-2 col-md-2 begin -->
                     <h4> Pages </h4>  
                     <ul>
-                            <li><a href="myaccount.php"> My Account </a></li>
-                            <li><a href="../shopping-cart.php"> Shopping Cart </a></li>
-                            <li><a href="../shop.php"> Shop </a></li>
-                            <li><a href="../contact.php"> Contact Us</a></li>
+                            <li><a href="customer/myaccount.php"> My Account </a></li>
+                            <li><a href="shopping-cart.php"> Shopping Cart </a></li>
+                            <li><a href="shop.php"> Shop </a></li>
+                            <li><a href="contact.php"> Contact Us</a></li>
                     </ul>                       
             </div><!-- col-sm-6 col-md-3 finish -->
             <div class="col-sm-2 col-xs-2 begin"><!-- col-sm-2 col-md-2 begin -->
                     <h4> For Our Users </h4>
                     <ul>
-                        <li><a href="../login.php">Login</a> </li>
-                        <li><a href="../sign-up.php">Register</a></li>
+                        <li><a href="login.php">Login</a> </li>
+                        <li><a href="sign-up.php">Register</a></li>
                     </ul>
             </div><!-- col-sm-2 col-md-2 finish -->
             <div class="col-sm-2 col-xs-2 begin"><!-- col-sm-2 col-md-2 begin -->
                     <h4> Categories </h4>
+                    
                     <ul>
-                        <li><a href="#"> Necklace </a></li>
-                        <li><a href="#"> Ring </a></li>
-                        <li><a href="#"> Earring </a></li>
-                        <li><a href="#"> Watch</a></li>
+                        <?php                       
+                           
+                         $strSql = "SELECT * from category_products";
+                         $run_products =  mysqli_query($connection, $strSql); 
+                         while($row_product = mysqli_fetch_array($run_products)){
+                             $category_id = $row_product['category_id'];
+                             $category_name = $row_product['category_name'];
+                             
+                            echo <<<EOD
+                             <li><a href="shop.php?category_id=$category_id"> $category_name </a></li>
+                            EOD;
+
+                         }
+                       
+                        ?>
                     </ul>
+                   
             
             </div><!-- col-sm-6 col-md-3 finish -->     
             <div class="col-sm-3 col-xs-3 begin"><!-- col-sm-2 col-md-2 begin -->
@@ -67,7 +81,8 @@
             
         </div> <!--row finish-->
     </div><!--container finish-->
-    <hr>  
+
+    <hr>   
     
 </div><!--footer finish-->
 
