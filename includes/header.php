@@ -1,5 +1,19 @@
 <?php
     include("functions/Display.php");    
+
+    if(isset($_GET['pro_id'])){
+        $product_id= $_GET['pro_id'];
+        $get_product = "SELECT * from products where product_id=$product_id";
+        $run_products = mysqli_query($connection, $get_product);
+        $row_product = mysqli_fetch_array($run_products);
+        $product_name = $row_product['product_name'];
+        $category = $row_product['category'];
+
+        $get_product = "SELECT * from category_products where category_id=$category";
+        $run_products = mysqli_query($connection, $get_product);
+        $row_product = mysqli_fetch_array($run_products);
+        $category_name = $row_product['category_name'];
+    }
 ?>
 
 <!DOCTYPE html>

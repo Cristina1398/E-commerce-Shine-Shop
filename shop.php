@@ -59,17 +59,17 @@
                                         <div class="product"> <!--product begin-->
                                             <div class="text"> <!--text begin -->
                                                 <h3>
-                                                    <a href="details.php?product_id=$product_id">
+                                                    <a href="details.php?pro_id=$product_id">
                                                         $product_title
                                                     </a>
                                                 </h3>
                                             </div> <!-- text finish-->                
-                                            <a href="details.php">
+                                            <a href="details.php?pro_id=$product_id">
                                                 <img class="img-responsive" src="admin_area/product_images/$product_image1">
                                             </a>
                                             <p class="price"> $$product_price </p>
                                             <p class="button">
-                                                <a href="details.php?product_id=$product_id" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
+                                             <a href="details.php?pro_id=$product_id" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"> Details </span></a>
                                                 <a href="details.php" class= "btn btn-primary">
                                                     <i class="fa fa-shopping-cart">
                                                             Add To cart
