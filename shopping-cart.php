@@ -1,6 +1,6 @@
 <?php
     $active = 'Shopping-cart';
-    include("includes/header.php");
+    require_once 'includes/header.php';
 ?>
 
 
@@ -28,12 +28,14 @@
             </div> <!--col-md-12 finish-->            
 
             <div id="cart" class="col-md-12"><!-- col-md-12 Begin -->
-                <h1> Your Bag </h1>
+                <h1> Your Bag </h1>               
                 <h2>  Contact-free delivery. </h2>
                 <h3>  All online orders contain a gift receipt | price will not be displayed </h3>
+                <h3> You Have <b><?php echo NumberofItems(); ?> </b> Products In your Bag </h4>
+
                
                 <div class="container"><!-- box Begin -->                   
-                   <form action="cart.php" method="post" enctype="multipart/form-data"><!-- form Begin -->         
+                   <form action="shopping-cart.php" method="post" enctype="multipart/form-data"><!-- form Begin -->         
                                       
                             <div class="table-responsive"> <!-- table-responsive begin -->
                                 <table class="table">
@@ -61,53 +63,47 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row" class="border-0">
-                                                <div class="p-2">
-                                                    <img src="admin_area/product_images/ring1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                                                    <div class="ml-3 d-inline-block align-middle">
-                                                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Timex Unisex Originals</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: Watches</span>
-                                                    </div>
-                                                </div>
-                                            </th>
-                                            <td class="border-0 align-middle"><strong>$79.00</strong></td>
-                                            <td class="border-0 align-middle"><strong>3</strong></td>
-                                            <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
-                                            <td class="border-0 align-middle"><strong>Medium</strong></td>
-                                            <td class="border-0 align-middle"><strong>$79.00</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <th scope="row">
-                                                    <div class="p-2">
-                                                    <img src="admin_area/product_images/ring2020.png" alt="" width="70" class="img-fluid rounded shadow-sm">
-                                                    <div class="ml-3 d-inline-block align-middle">
-                                                        <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Lumix camera lense</a></h5><span class="text-muted font-weight-normal font-italic">Category: Electronics</span>
-                                                    </div>
-                                                    </div>
-                                            </th>
-                                            <td class="align-middle"><strong>$79.00</strong></td>
-                                            <td class="align-middle"><strong>3</strong></td>
-                                            <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a> </td>
-                                            <td class="border-0 align-middle"><strong>Medium</strong></td>
-                                            <td class="border-0 align-middle"><strong>$79.00</strong></td>
-                                        </tr>
-
-                                        <tr>
+                                       
+                                    <?php 
+                                        $ip_addre = getIpAddress();  
+                                        $sql = "SELECT *
+                                                from products p
+                                                join bag b
+                                                     on p.product_id = b.product_id
+                                                join category_products cp
+                                                     on p.category = cp.category_id
+                                                WHERE ip_addre = '$ip_addre'";                                    
+                                        $run_cart = mysqli_query($connection,$sql);                                    
+                                        while($row=mysqli_fetch_array($run_cart)){
+                                            $product_id = $row['product_id'];
+                                            $product_name = $row['product_name'];
+                                            $category_name = $row['category_name'];                                              
+                                            $quantity = $row['quantity'];
+                                            $price = $row['price']; 
+                                            $size = $row['size']; 
+                                            $product_image1 = $row['product_image1'];
+                                            $subtotal = $quantity * $price; 
+                                            echo <<<EOD
+                                            <tr>
                                             <th scope="row">
                                                 <div class="p-2">
-                                                <img src="admin_area/product_images/necklace3.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                <img src="admin_area/product_images/$product_image1" alt="" width="70" class="img-fluid rounded shadow-sm">
                                                 <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Gray Nike running shoe</a></h5><span class="text-muted font-weight-normal font-italic">Category: Fashion</span>
+                                                    <h5 class="mb-0"> <a href="details.php?pro_id=$product_id" class="text-dark d-inline-block">$product_name</a></h5><span class="text-muted font-weight-normal font-italic">Category: $category_name </span>
                                                 </div>
                                                 </div>
                                             </th>
-                                            <td class="align-middle"><strong>$79.00</strong></td>
-                                            <td class="align-middle"><strong>3</strong></td>
-                                            <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a> </td>
-                                            <td class="border-0 align-middle"><strong>Medium</strong></td>
-                                            <td class="border-0 align-middle"><strong>$79.00</strong></td>
-                                        </tr>
+                                            <td class="align-middle"><strong>$ $price</strong></td>
+                                            <td class="align-middle"><strong>$quantity</strong></td>
+                                            <td class="align-middle"><button type="submit" name="update" value="$product_id" style="font-size:24px"><i class="fa fa-trash"></i></button></td>
+                                            <td class="border-0 align-middle"><strong>$size</strong></td>
+                                            <td class="border-0 align-middle"><strong>$ $subtotal</strong></td>
+                                            </tr>
+                                            EOD;
+                                        }
+                                    ?>
+
+                                        
                                     </tbody>
                                 </table>
                             </div> <!-- table-responsive finish -->
@@ -121,9 +117,7 @@
                                 </div> <!-- pull-left Finish -->
                                 
                                 <div class="pull-right"><!-- pull-right Begin -->                               
-                                    <button type="submit" name="update" value="Update Cart" class="btn btn-default"><!-- btn btn-default Begin -->                                   
-                                        <i class="fa fa-refresh"></i> Update Cart                                   
-                                    </button><!-- btn btn-default Finish -->                               
+                                                                 
                                     <a href="checkout.php" class="btn btn-primary">                                   
                                         Proceed Checkout <i class="fa fa-chevron-right"></i>                                   
                                     </a>                               
@@ -132,11 +126,36 @@
                             </div><!-- box-footer Finish -->
                        
                     </form><!-- form Finish -->
+                    <?php
+                    function UpdateBag(){
+                        global $connection; 
+                        if(isset($_POST['update'])){                            
+                            $a= $_POST['update'];
+                            echo $a;                             
+                            $ip_addre = getIpAddress();          
+                            $sql = "DELETE from bag where product_id =$a AND ip_addre = '$ip_addre'";
+                            $run_delete = mysqli_query($connection, $sql);
+                            if($run_delete){
+                                
+                                echo "<script> window.open('shopping-cart.php','_self')</script>";
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                
+               
+                    echo @$up_cart = UpdateBag();
+                
+                    ?>
                    
                 </div><!-- container Finish -->          
             </div><!-- col-md-12 Finish -->         
         </div><!-- container Finish -->
         <hr id="separator">
+        
         <div class="container"> <!--container Begin -->         
             <div class="row"> 
                 <div id="summary" class="col-md-7"> <!--box Begin -->
@@ -162,14 +181,14 @@
                                 <tr><!-- tr Begin -->
                                     
                                     <td> Subtotal </td>
-                                    <th> $200 </th>
+                                    <th> <?php ComputeThePrice(); ?> </th>
                                     
                                 </tr><!-- tr Finish -->
                                 
                                 <tr><!-- tr Begin -->
                                     
                                     <td> Delivery </td>
-                                    <td> $0 </td>
+                                    <td> $10 </td>
                                     
                                 </tr><!-- tr Finish -->
                                 
@@ -182,8 +201,8 @@
                                 
                                 <tr class="total"><!-- tr Begin -->
                                     
-                                    <td> Total </td>
-                                    <th> $200 </th>
+                                    <td> Total </td>                                    
+                                    <th> <?php ComputeThePrice();?> </th>
                                     
                                 </tr><!-- tr Finish -->
                                 

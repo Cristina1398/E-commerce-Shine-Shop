@@ -1,19 +1,29 @@
 <?php
-    include("functions/Display.php");    
+    require_once 'functions/Display.php';    
 
     if(isset($_GET['pro_id'])){
         $product_id= $_GET['pro_id'];
-        $get_product = "SELECT * from products where product_id=$product_id";
-        $run_products = mysqli_query($connection, $get_product);
-        $row_product = mysqli_fetch_array($run_products);
-        $product_name = $row_product['product_name'];
-        $category = $row_product['category'];
 
-        $get_product = "SELECT * from category_products where category_id=$category";
-        $run_products = mysqli_query($connection, $get_product);
+        $strSql = "SELECT p.product_id, p.category, cp.category_name, p.product_name, p.product_image1, p.product_image2, p.product_image3, p.price, p.description, p.keywords from products p
+        JOIN category_products cp
+        ON p.category = cp.category_id
+         WHERE product_id=$product_id";
+    
+        $run_products = mysqli_query($connection, $strSql);
         $row_product = mysqli_fetch_array($run_products);
+      
+        $product_id = $row_product['product_id'];
+        $category = $row_product['category'];
+        $product_name = $row_product['product_name'];
+        $product_price = $row_product['price'];
+        $product_image1 = $row_product['product_image1'];
+        $product_image2 = $row_product['product_image2'];
+        $product_image3 = $row_product['product_image3'];
+        $description = $row_product['description'];
+        $keywords = $row_product['keywords'];      
         $category_name = $row_product['category_name'];
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +90,8 @@
        <div class="container"><!-- container Begin -->           
            <a href="shopping-cart.php" class="btn navbar-btn btn-primary right"><!-- btn navbar-btn btn-primary Begin -->                   
                    <i class="fa fa-shopping-cart"></i>                   
-                   <span>4 Items In Your Cart</span>                   
+                   <span> <?php NumberofItems(); ?> Items In Your Cart | </span>      
+                   <span> <?php ComputeThePrice(); ?> </span>                
             </a><!-- btn navbar-btn btn-primary Finish -->
             
             <button class="btn btn-primary navbar-btn" type="button" data-toggle="collapse" data-target="#search"><!-- btn btn-primary navbar-btn Begin -->

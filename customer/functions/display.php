@@ -27,14 +27,13 @@
                 
                 
                 if(mysqli_num_rows($run_check)>0){
-                    echo "<script>alert('This product has already added in cart')</script>";
-                    echo "<script>window.open('details.php?pro_id=$product_id','_self')</script>";
+                    echo "<script> alert('This product has already added in cart') </script>";
+                    
                     
                 }else{
                 
                     $query = "INSERT into bag (product_id,ip_addre,quantity,size) values ('$product_id', '$ip_addre', '$product_quantity', '$product_size')";
                     $run_query = mysqli_query($connection, $query);                    
-                    echo "<script>window.open('details.php?pro_id=$product_id','_self')</script>";
             
                 }
                     
@@ -212,17 +211,8 @@ EOD;
                 $total += $sub_total;
                     
                 }
-                echo "$" . $total;
-            }
-            
-         
-            
-        
-        
-       
-        
-
+                echo $total;
+        }             
 
         
-
 ?>

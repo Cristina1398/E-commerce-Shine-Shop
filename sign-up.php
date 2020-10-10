@@ -1,6 +1,6 @@
 <?php
     $active = 'SignUp';
-    include("includes/header.php");
+    require_once 'includes/header.php';
   
 ?>
 

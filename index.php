@@ -1,6 +1,6 @@
 <?php
     $active='Home';
-    include("includes/header.php");    
+    require_once 'includes/header.php'; 
 ?>
 
     <div class="container" id="photos" ><!--Begin container -->

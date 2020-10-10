@@ -1,6 +1,6 @@
 <?php
     $active = 'Shop';
-    include("includes/header.php");
+    require_once 'includes/header.php';
 ?>
 
     <div id="content-shop"> <!-- content-shop Begin -->
